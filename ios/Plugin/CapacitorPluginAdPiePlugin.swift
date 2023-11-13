@@ -16,8 +16,15 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         call.resolve([
             "value": implementation.echo(value)
         ])*/
+        print(call)
+        print(call.options)
+        print(call.dictionaryRepresentation)
+        let caller_AdPieSDK_MediaId = call.getString("AdPieSDK_MediaId")
+        print(caller_AdPieSDK_MediaId)
+        let caller_slotID = call.getString("slotID")
+        print(caller_slotID)
         DispatchQueue.main.sync {
-            let cv = RewardedAdViewContoller(AdPieSDK_MediaId: "57342d787174ea39844cac11", slotId: "61de726d65a17f71c7896827")
+            let cv = RewardedAdViewContoller(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!)
             // Modally present the player and call the player's play() method when complete.
             self.bridge?.viewController?.present(cv, animated: true) {
                   print("show RewardedAdViewContoller completed")
@@ -30,8 +37,15 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         call.resolve([
             "value": implementation.echo(value)
         ])*/
+        print(call)
+        print(call.options)
+        print(call.dictionaryRepresentation)
+        let caller_AdPieSDK_MediaId = call.getString("AdPieSDK_MediaId")
+        print(caller_AdPieSDK_MediaId)
+        let caller_slotID = call.getString("slotID")
+        print(caller_slotID)
         DispatchQueue.main.sync {
-            let cv = InterstitialAD_ViewContoller(AdPieSDK_MediaId: "57342d787174ea39844cac11", slotId: "573430057174ea39844cac16")
+            let cv = InterstitialAD_ViewContoller(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!)
             // Modally present the player and call the player's play() method when complete.
             self.bridge?.viewController?.present(cv, animated: true) {
                   print("show InterstitialAD_ViewContoller completed")
@@ -44,8 +58,15 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         call.resolve([
             "value": implementation.echo(value)
         ])*/
+        print(call)
+        print(call.options)
+        print(call.dictionaryRepresentation)
+        let caller_AdPieSDK_MediaId = call.getString("AdPieSDK_MediaId")
+        print(caller_AdPieSDK_MediaId)
+        let caller_slotID = call.getString("slotID")
+        print(caller_slotID)
         DispatchQueue.main.sync {
-            let cv = NativeAD_ViewController(AdPieSDK_MediaId: "57342d787174ea39844cac11", slotId: "580491a37174ea5279c5d09b")
+            let cv = NativeAD_ViewController(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!)
             if #available(iOS 15.0, *) {
                 if let presentationController = cv.presentationController as? UISheetPresentationController {
                     presentationController.detents = [.medium()]
@@ -65,8 +86,15 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         call.resolve([
             "value": implementation.echo(value)
         ])*/
+        print(call)
+        print(call.options)
+        print(call.dictionaryRepresentation)
+        let caller_AdPieSDK_MediaId = call.getString("AdPieSDK_MediaId")
+        print(caller_AdPieSDK_MediaId)
+        let caller_slotID = call.getString("slotID")
+        print(caller_slotID)
         DispatchQueue.main.sync {
-            let cv = BannerAdViewContoller(AdPieSDK_MediaId: "57342d787174ea39844cac11", slotId: "57342fdd7174ea39844cac15")
+            let cv = BannerAdViewContoller(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!)
             
             // Modally present the player and call the player's play() method when complete.
             self.bridge?.viewController?.present(cv, animated: true) {

@@ -26,13 +26,12 @@ npx cap sync
 ### call_AdPie_bannerAd(...)
 
 ```typescript
-call_AdPie_bannerAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+call_AdPie_bannerAd(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>
 ```
 
-| Param                  | Type                |
-| ---------------------- | ------------------- |
-| **`AdPieSDK_MediaId`** | <code>string</code> |
-| **`slotID`**           | <code>string</code> |
+| Param         | Type                                                       |
+| ------------- | ---------------------------------------------------------- |
+| **`options`** | <code>{ AdPieSDK_MediaId: string; slotID: string; }</code> |
 
 --------------------
 
@@ -40,13 +39,12 @@ call_AdPie_bannerAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
 ### call_AdPie_nativeAd(...)
 
 ```typescript
-call_AdPie_nativeAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+call_AdPie_nativeAd(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>
 ```
 
-| Param                  | Type                |
-| ---------------------- | ------------------- |
-| **`AdPieSDK_MediaId`** | <code>string</code> |
-| **`slotID`**           | <code>string</code> |
+| Param         | Type                                                       |
+| ------------- | ---------------------------------------------------------- |
+| **`options`** | <code>{ AdPieSDK_MediaId: string; slotID: string; }</code> |
 
 --------------------
 
@@ -54,13 +52,12 @@ call_AdPie_nativeAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
 ### call_AdPie_interstitialAd(...)
 
 ```typescript
-call_AdPie_interstitialAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+call_AdPie_interstitialAd(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>
 ```
 
-| Param                  | Type                |
-| ---------------------- | ------------------- |
-| **`AdPieSDK_MediaId`** | <code>string</code> |
-| **`slotID`**           | <code>string</code> |
+| Param         | Type                                                       |
+| ------------- | ---------------------------------------------------------- |
+| **`options`** | <code>{ AdPieSDK_MediaId: string; slotID: string; }</code> |
 
 --------------------
 
@@ -68,13 +65,12 @@ call_AdPie_interstitialAd(AdPieSDK_MediaId: string, slotID: string) => Promise<v
 ### call_AdPie_rewardedAd(...)
 
 ```typescript
-call_AdPie_rewardedAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+call_AdPie_rewardedAd(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>
 ```
 
-| Param                  | Type                |
-| ---------------------- | ------------------- |
-| **`AdPieSDK_MediaId`** | <code>string</code> |
-| **`slotID`**           | <code>string</code> |
+| Param         | Type                                                       |
+| ------------- | ---------------------------------------------------------- |
+| **`options`** | <code>{ AdPieSDK_MediaId: string; slotID: string; }</code> |
 
 --------------------
 
