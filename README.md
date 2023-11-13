@@ -13,24 +13,68 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`call_AdPie_bannerAd(...)`](#call_adpie_bannerad)
+* [`call_AdPie_nativeAd(...)`](#call_adpie_nativead)
+* [`call_AdPie_interstitialAd(...)`](#call_adpie_interstitialad)
+* [`call_AdPie_rewardedAd(...)`](#call_adpie_rewardedad)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### call_AdPie_bannerAd(...)
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+call_AdPie_bannerAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+| Param                  | Type                |
+| ---------------------- | ------------------- |
+| **`AdPieSDK_MediaId`** | <code>string</code> |
+| **`slotID`**           | <code>string</code> |
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+--------------------
+
+
+### call_AdPie_nativeAd(...)
+
+```typescript
+call_AdPie_nativeAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+```
+
+| Param                  | Type                |
+| ---------------------- | ------------------- |
+| **`AdPieSDK_MediaId`** | <code>string</code> |
+| **`slotID`**           | <code>string</code> |
+
+--------------------
+
+
+### call_AdPie_interstitialAd(...)
+
+```typescript
+call_AdPie_interstitialAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+```
+
+| Param                  | Type                |
+| ---------------------- | ------------------- |
+| **`AdPieSDK_MediaId`** | <code>string</code> |
+| **`slotID`**           | <code>string</code> |
+
+--------------------
+
+
+### call_AdPie_rewardedAd(...)
+
+```typescript
+call_AdPie_rewardedAd(AdPieSDK_MediaId: string, slotID: string) => Promise<void>
+```
+
+| Param                  | Type                |
+| ---------------------- | ------------------- |
+| **`AdPieSDK_MediaId`** | <code>string</code> |
+| **`slotID`**           | <code>string</code> |
 
 --------------------
 
