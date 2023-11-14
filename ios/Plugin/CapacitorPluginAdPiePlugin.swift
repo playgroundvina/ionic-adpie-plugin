@@ -95,11 +95,12 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         print(caller_slotID)
         DispatchQueue.main.sync {
             let cv = BannerAdViewContoller(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!)
-            
+         
             // Modally present the player and call the player's play() method when complete.
-            self.bridge?.viewController?.present(cv, animated: true) {
-                  print("show call_AdPie_bannerAd completed")
-            }
+            self.bridge?.viewController?.view.addSubview(cv.view)
+            //self.bridge?.viewController?.present(cv, animated: true) {
+                  //print("show call_AdPie_bannerAd completed")
+            //}
         }
     }//end call_AdPie_bannerAd func
     
@@ -467,6 +468,9 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         super.init(nibName: nil, bundle: nil)
         self.AdPieSDK_MediaId = AdPieSDK_MediaId
         self.slotId = slotId
+        
+        self.view.frame = CGRect(x: 0,y: UIScreen.main.bounds.height - 150,width: UIScreen.main.bounds.width, height: 60)
+        self.view.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
@@ -515,6 +519,35 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
     //var adView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+           let testview = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 400))
+       
+        self.view.addSubview(testview)
+        testview.backgroundColor = .red
+        testview.translatesAutoresizingMaskIntoConstraints = false
+        
+        testview.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        testview.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        testview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        */
+        
+        let adView = APAdView(frame: CGRect(x: 0, y: 0, width: 120, height: 400))
+    
+     self.view.addSubview(adView)
+        adView.backgroundColor = .red
+        adView.translatesAutoresizingMaskIntoConstraints = false
+     
+        adView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        adView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        adView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        adView.slotId = self.slotId
+        
+        adView.rootViewController = self
+        adView.load()
+        //testview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        /*
         self.modalPresentationStyle = .overCurrentContext
         self.view.backgroundColor = .clear
         self.view.isOpaque = false
@@ -540,7 +573,7 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         // 광고 요청
         adView.load()
         
-     
+     */
     }
     
     override func didReceiveMemoryWarning() {
