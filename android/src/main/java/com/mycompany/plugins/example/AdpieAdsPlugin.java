@@ -4,15 +4,16 @@ import android.Manifest;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.capacitor.adpie.banner.BannerExecutor;
-import com.capacitor.adpie.interstitial.AdInterstitialExecutor;
-import com.capacitor.adpie.rewarded.AdRewardExecutor;
+
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 import com.gomfactory.adpie.sdk.AdPieSDK;
+import com.mycompany.plugins.example.banner.BannerExecutor;
+import com.mycompany.plugins.example.interstitial.AdInterstitialExecutor;
+import com.mycompany.plugins.example.rewarded.AdRewardExecutor;
 
 @CapacitorPlugin(name = "CapacitorPluginAdPie", permissions = {@Permission(alias = "network", strings = {Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.INTERNET})}
 )

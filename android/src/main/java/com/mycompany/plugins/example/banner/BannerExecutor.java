@@ -14,12 +14,12 @@ import android.widget.RelativeLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.util.Supplier;
 
-import com.capacitor.adpie.models.Executor;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.gomfactory.adpie.sdk.AdView;
 import com.google.android.gms.common.util.BiConsumer;
+import com.mycompany.plugins.example.models.Executor;
 
 import java.util.Objects;
 

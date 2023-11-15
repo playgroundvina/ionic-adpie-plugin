@@ -7,13 +7,13 @@ import android.util.Log;
 
 import androidx.core.util.Supplier;
 
-import com.capacitor.adpie.models.Executor;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.gomfactory.adpie.sdk.RewardedVideoAd;
 import com.gomfactory.adpie.sdk.videoads.FinishState;
 import com.google.android.gms.common.util.BiConsumer;
+import com.mycompany.plugins.example.models.Executor;
 
 public class AdRewardExecutor extends Executor {
 
