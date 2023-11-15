@@ -1,0 +1,79 @@
+{
+  "api": {
+    "name": "CapacitorPluginAdPiePlugin",
+    "slug": "capacitorpluginadpieplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "call_AdPie_bannerAd",
+        "signature": "(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ AdPieSDK_MediaId: string; slotID: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "call_adpie_bannerad"
+      },
+      {
+        "name": "call_AdPie_nativeAd",
+        "signature": "(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ AdPieSDK_MediaId: string; slotID: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "call_adpie_nativead"
+      },
+      {
+        "name": "call_AdPie_interstitialAd",
+        "signature": "(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ AdPieSDK_MediaId: string; slotID: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "call_adpie_interstitialad"
+      },
+      {
+        "name": "call_AdPie_rewardedAd",
+        "signature": "(options: { AdPieSDK_MediaId: string; slotID: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ AdPieSDK_MediaId: string; slotID: string; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "call_adpie_rewardedad"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}

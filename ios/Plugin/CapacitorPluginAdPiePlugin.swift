@@ -463,6 +463,10 @@ class RewardedAdViewContoller: UIViewController, APRewardedAdDelegate {
 class BannerAdViewContoller: UIViewController, APAdViewDelegate {
     var AdPieSDK_MediaId :String = ""
     var slotId:String = ""
+    
+   
+    //let myCancelButton = UIButton()
+    
     init(AdPieSDK_MediaId:String, slotId:String) {
         
         super.init(nibName: nil, bundle: nil)
@@ -471,14 +475,18 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         
         self.view.frame = CGRect(x: 0,y: UIScreen.main.bounds.height - 150,width: UIScreen.main.bounds.width, height: 60)
         self.view.backgroundColor = .clear
+        
+        
+        //self.myCancelButton.setTitle("X", for:.normal)
+      
+       
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
-    
+  
     override func viewWillAppear(_ animated: Bool) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         // 디버깅 적용
@@ -519,6 +527,8 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
     //var adView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+     
         /*
            let testview = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 400))
        
@@ -545,7 +555,20 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         
         adView.rootViewController = self
         adView.load()
-        //testview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        //myCancelButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        //self.view.addSubview(myCancelButton)
+        //myCancelButton.translatesAutoresizingMaskIntoConstraints = false
+        //myCancelButton.backgroundColor = .red
+        //myCancelButton.setTitleColor(.black, for: .normal)
+        
+        //myCancelButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        //myCancelButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        //myCancelButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        //myCancelButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        //myCancelButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+       
+      
         
         /*
         self.modalPresentationStyle = .overCurrentContext
@@ -575,6 +598,7 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         
      */
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -611,6 +635,8 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
     
     func adViewWillLeaveApplication(_ view: APAdView!) {
         // 광고 클릭 후 이벤트 발생
+        print("out")
     }
+    
 }
 
