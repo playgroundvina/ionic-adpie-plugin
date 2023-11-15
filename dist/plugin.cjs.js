@@ -1,5 +1,14 @@
-import { WebPlugin } from '@capacitor/core';
-export class CapacitorPluginAdPieWeb extends WebPlugin {
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var core = require('@capacitor/core');
+
+const CapacitorPluginAdPie = core.registerPlugin('CapacitorPluginAdPie', {
+    web: () => Promise.resolve().then(function () { return web; }).then(m => new m.CapacitorPluginAdPieWeb()),
+});
+
+class CapacitorPluginAdPieWeb extends core.WebPlugin {
     call_AdPie_bannerAd(options) {
         console.log('call_AdPie_bannerAd', options.AdPieSDK_MediaId);
         console.log('call_AdPie_bannerAd', options.slotID);
@@ -57,4 +66,11 @@ export class CapacitorPluginAdPieWeb extends WebPlugin {
         throw new Error('Method not implemented.');
     }
 }
-//# sourceMappingURL=web.js.map
+
+var web = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    CapacitorPluginAdPieWeb: CapacitorPluginAdPieWeb
+});
+
+exports.CapacitorPluginAdPie = CapacitorPluginAdPie;
+//# sourceMappingURL=plugin.cjs.js.map
