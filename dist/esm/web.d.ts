@@ -1,19 +1,6 @@
-import { PluginListenerHandle, WebPlugin } from '@capacitor/core';
+import { WebPlugin } from '@capacitor/core';
 import type { CapacitorPluginAdPiePlugin } from './definitions';
 export declare class CapacitorPluginAdPieWeb extends WebPlugin implements CapacitorPluginAdPiePlugin {
-    addListener(eventName: 'bannerAdLoaded', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'bannerAdFailedToLoad', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'bannerAdClicked', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onRewardedVideoLoaded', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onRewardedVideoFailedToLoad', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onRewardedVideoClicked', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onRewardedVideoStarted', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onRewardedVideoFinished', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onInterstitialLoaded', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onInterstitialFailedToLoad', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onInterstitialClicked', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onInterstitialShown', listenerFunc: () => void): Promise<PluginListenerHandle>;
-    addListener(eventName: 'onInterstitialDismissed', listenerFunc: () => void): Promise<PluginListenerHandle>;
     isLoadedInterstitial(): Promise<{
         isLoadedInterstitial: boolean;
     }>;
