@@ -27,4 +27,6 @@ export class CapacitorPluginAdPieWeb
     console.log('ECHO', options);
     return options;
   }
+
+  
 }
