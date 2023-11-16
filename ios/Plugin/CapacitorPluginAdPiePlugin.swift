@@ -224,6 +224,21 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
             }
         }
     }
+    @objc func resumeBanner(_ call: CAPPluginCall) {
+        if(mycurrentViewHolder != nil ){
+            DispatchQueue.main.sync {
+                
+                mycurrentViewHolder?.isHidden = false
+                
+                //mycurrentViewHolder?.translatesAutoresizingMaskIntoConstraints = false
+             
+                //mycurrentViewHolder?.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+                //mycurrentViewHolder?.heightAnchor.constraint(equalToConstant: 60).isActive = true
+                //mycurrentViewHolder?.bottomAnchor.constraint(equalTo: mycurrentViewHolderParent!.bottomAnchor).isActive = true
+            }
+        }
+    }
+    
     
     @objc func prepareRewardVideoAd(_ call: CAPPluginCall) {
         print("my_caller_AdPieSDK_MediaId: ",my_caller_AdPieSDK_MediaId)
