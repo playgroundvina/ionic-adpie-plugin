@@ -44,6 +44,9 @@ export class CapacitorPluginAdPieWeb
   hideBanner(): Promise<void> {
     throw new Error('Method not implemented.');
   }
+  resumeBanner(): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
   removeBanner(): Promise<void> {
     throw new Error('Method not implemented.');
   }

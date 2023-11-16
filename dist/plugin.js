@@ -39,6 +39,9 @@ var capacitorCapacitorPluginAdPie = (function (exports, core) {
         hideBanner() {
             throw new Error('Method not implemented.');
         }
+        resumeBanner() {
+            throw new Error('Method not implemented.');
+        }
         removeBanner() {
             throw new Error('Method not implemented.');
         }

@@ -1,6 +1,5 @@
 # capacitor-plugin-adpie
 
-plugin adpie ios
 
 ## Install
 
@@ -8,6 +7,47 @@ plugin adpie ios
 npm install capacitor-plugin-adpie
 npx cap sync
 ```
+
+
+## 
+
+* Id for test:
+ - appId: 57342d1b7174ea39844cac10 
+ - adBannerId: 57342e0d7174ea39844cac13
+ - adInterstitialId: 57342e3d7174ea39844cac14
+ - adRewardId: 58f99962affeaa4201970fa6
+
+
+*  import { CapacitorPluginAdPie } from 'capacitor-plugin-adpie';
+
+
+* Need initialize first: 
+
+      await Adpie.initialize({appId:'57342d1b7174ea39844cac10'}) // remember replace appId
+
+
+* Example show a banner :
+
+  const options = {
+      adBannerId: "57342e0d7174ea39844cac13",  // remember replace adBannerId
+      position: 'TOP_CENTER',  // position : TOP_CENTER, CENTER, default: BOTTOM_CENTER 
+      margin: 75,               // margin only for BOTTOM_CENTER or TOP_CENTER, default value =0
+    };
+     await CapacitorPluginAdPie.showBanner(options);
+
+
+* To remove a listener from the plugin object:
+
+ - Example: 
+
+ const myRewardClickListener = await CapacitorPluginAdPie.addListener('onRewardedVideoClicked', () => {
+    
+    console.log(' onRewardedVideoClicked')
+  
+  });
+
+myRewardClickListener.remove();  // remove
+
 
 ## API
 
@@ -21,6 +61,7 @@ npx cap sync
 * [`showBanner(...)`](#showbanner)
 * [`hideBanner()`](#hidebanner)
 * [`removeBanner()`](#removebanner)
+* [`resumeBanner()`](#resumebanner)
 * [`addListener('bannerAdLoaded', ...)`](#addlistenerbanneradloaded)
 * [`addListener('bannerAdFailedToLoad', ...)`](#addlistenerbanneradfailedtoload)
 * [`addListener('bannerAdClicked', ...)`](#addlistenerbanneradclicked)
@@ -138,6 +179,15 @@ hideBanner() => Promise<void>
 
 ```typescript
 removeBanner() => Promise<void>
+```
+
+--------------------
+
+
+### resumeBanner()
+
+```typescript
+resumeBanner() => Promise<void>
 ```
 
 --------------------

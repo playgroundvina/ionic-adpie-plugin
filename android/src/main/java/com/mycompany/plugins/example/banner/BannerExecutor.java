@@ -216,6 +216,30 @@ public class BannerExecutor extends Executor {
     }
 
     @PluginMethod
+    public void resumeBanner(final PluginCall call) {
+        if (mAdView == null) {
+            call.reject("You tried to resume a banner that was never existed");
+            return;
+        }
+
+        try {
+            activitySupplier
+                    .get()
+                    .runOnUiThread(
+                            () -> {
+                                if (mAdViewLayout != null) {
+                                    mAdViewLayout.setVisibility(View.VISIBLE);
+                                    call.resolve();
+                                }
+                            }
+                    );
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage(), ex);
+        }
+    }
+
+
+    @PluginMethod
     public void removeBanner(final PluginCall call) {
         try {
             if (mAdView != null) {

@@ -33,6 +33,9 @@ export class CapacitorPluginAdPieWeb extends WebPlugin {
     hideBanner() {
         throw new Error('Method not implemented.');
     }
+    resumeBanner() {
+        throw new Error('Method not implemented.');
+    }
     removeBanner() {
         throw new Error('Method not implemented.');
     }

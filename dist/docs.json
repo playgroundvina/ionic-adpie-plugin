@@ -122,6 +122,16 @@
         "slug": "removebanner"
       },
       {
+        "name": "resumeBanner",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "resumebanner"
+      },
+      {
         "name": "addListener",
         "signature": "(eventName: \"bannerAdLoaded\", listenerFunc: () => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
         "parameters": [

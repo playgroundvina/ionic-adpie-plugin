@@ -26,6 +26,7 @@ export interface CapacitorPluginAdPiePlugin {
     }): Promise<void>;
     hideBanner(): Promise<void>;
     removeBanner(): Promise<void>;
+    resumeBanner(): Promise<void>;
     addListener(eventName: "bannerAdLoaded", listenerFunc: () => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "bannerAdFailedToLoad", listenerFunc: () => void): Promise<PluginListenerHandle> & PluginListenerHandle;
     addListener(eventName: "bannerAdClicked", listenerFunc: () => void): Promise<PluginListenerHandle> & PluginListenerHandle;

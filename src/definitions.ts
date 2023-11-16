@@ -18,6 +18,8 @@ export interface CapacitorPluginAdPiePlugin {
   showBanner(options: { adBannerId: string ,position: string, margin: number }): Promise<void>; // position : TOP_CENTER, CENTER, default: BOTTOM_CENTER ; margin only for BOTTOM_CENTER or TOP_CENTER, default value =0.  
   hideBanner(): Promise<void>;
   removeBanner(): Promise<void>;
+  resumeBanner(): Promise<void>;
+
 
   addListener(eventName: "bannerAdLoaded", listenerFunc: () => void): Promise<PluginListenerHandle> & PluginListenerHandle;
   addListener(eventName: "bannerAdFailedToLoad", listenerFunc: () => void): Promise<PluginListenerHandle> & PluginListenerHandle;

@@ -26,6 +26,7 @@ export declare class CapacitorPluginAdPieWeb extends WebPlugin implements Capaci
         margin: number;
     }): Promise<void>;
     hideBanner(): Promise<void>;
+    resumeBanner(): Promise<void>;
     removeBanner(): Promise<void>;
     prepareRewardVideoAd(options: {
         adRewardId: string;
