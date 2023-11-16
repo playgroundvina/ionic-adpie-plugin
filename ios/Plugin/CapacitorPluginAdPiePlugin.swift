@@ -7,7 +7,7 @@ import AdPieSDK
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(CapacitorPluginAdPiePlugin)
-public class CapacitorPluginAdPiePlugin: CAPPlugin {
+public class CapacitorPluginAdPiePlugin: CAPPlugin, APAdViewDelegate {
     private let implementation = CapacitorPluginAdPie()
 
     var mycurrentViewHolderParent:UIView?
@@ -108,7 +108,7 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         let caller_slotID = call.getString("slotID")
         print(caller_slotID)
         DispatchQueue.main.sync {
-            let cv = BannerAdViewContoller(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!, callerCapacitor: self)
+            let cv = BannerAdViewContoller(AdPieSDK_MediaId: caller_AdPieSDK_MediaId!, slotId: caller_slotID!, callerCapacitor: self, delegateParent: self)
             mycurrentViewHolder = cv.view
             // Modally present the player and call the player's play() method when complete.
             self.bridge?.viewController?.view.addSubview(cv.view)
@@ -149,6 +149,7 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
        
     }
     
+    //===========BANNNER=====//
     @objc func showBanner(_ call: CAPPluginCall) {
         print(call)
         print(call.options)
@@ -182,9 +183,10 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
                 let cv = BannerAdViewContoller(AdPieSDK_MediaId: my_caller_AdPieSDK_MediaId,
                                                slotId: caller_slotID!,
                                                position: caller_slotID_position,
-                                               margin: caller_slotID_margin, callerCapacitor: self
+                                               margin: caller_slotID_margin, callerCapacitor: self, delegateParent:self
                 )
                 mycurrentViewHolder = cv.view
+                
                 // Modally present the player and call the player's play() method when complete.
                 self.bridge?.viewController?.view.addSubview(cv.view)
                 mycurrentViewHolderParent = self.bridge?.viewController?.view
@@ -239,7 +241,7 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         }
     }
     
-    
+    //=========REWARD VIDEO==========///
     @objc func prepareRewardVideoAd(_ call: CAPPluginCall) {
         print("my_caller_AdPieSDK_MediaId: ",my_caller_AdPieSDK_MediaId)
         print(call)
@@ -269,6 +271,7 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         ])
     }
     
+    //==========INTERSTITIAL==========///
     @objc func prepareInterstitial(_ call: CAPPluginCall) {
         print("my_caller_AdPieSDK_MediaId: ",my_caller_AdPieSDK_MediaId)
         print(call)
@@ -298,6 +301,29 @@ public class CapacitorPluginAdPiePlugin: CAPPlugin {
         ])
     }
     
+    
+    
+    public func adViewDidLoadAd(_ view: APAdView!) {
+        // 광고 표출 성공 후 이벤트 발생
+        self.notifyListeners("bannerAdLoaded", data: ["bannerAdLoaded": true])
+    }
+    
+    public func adViewDidFail(toLoadAd view: APAdView!, withError error: Error!) {
+        // 광고 요청 또는 표출 실패 후 이벤트 발생
+        // error code : error._code
+        // error message : error.localizedDescription
+        print("FAIL", error.localizedDescription)
+        let errorMessage = "Failed to load native ads." + "(code : " + String(error._code) + ", message : " + error.localizedDescription + ")"
+        
+        //alertMessage(errorMessage)
+        self.notifyListeners("bannerAdFailedToLoad", data: ["bannerAdFailedToLoad": true])
+    }
+    
+    public func adViewWillLeaveApplication(_ view: APAdView!) {
+        // 광고 클릭 후 이벤트 발생
+        print("out")
+        self.notifyListeners("bannerAdClicked", data: ["bannerAdClicked": true])
+    }
 }//end class
 
 
@@ -681,9 +707,10 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
     var position:String?
     var margin:Int?
     //let myCancelButton = UIButton()
+    var delegateParent:CAPPlugin?
     
     init(AdPieSDK_MediaId:String, slotId:String, position: String? = "150",
-         margin: Int? = 0, callerCapacitor:CAPPlugin?) {
+         margin: Int? = 0, callerCapacitor:CAPPlugin?, delegateParent:CAPPlugin?) {
         
         super.init(nibName: nil, bundle: nil)
         self.AdPieSDK_MediaId = AdPieSDK_MediaId
@@ -697,7 +724,8 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         self.callerCapacitor = callerCapacitor
         //self.myCancelButton.setTitle("X", for:.normal)
       
-       
+        self.delegateParent = delegateParent
+        adView.delegate = delegateParent as! any APAdViewDelegate
     }
     
     required init?(coder: NSCoder) {
@@ -759,7 +787,7 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         testview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         */
         
-        let adView = APAdView(frame: CGRect(x: 0, y: 0, width: 120, height: 400))
+         adView = APAdView(frame: CGRect(x: 0, y: 0, width: 120, height: 400))
     
      self.view.addSubview(adView)
         adView.backgroundColor = .red
@@ -772,7 +800,7 @@ class BannerAdViewContoller: UIViewController, APAdViewDelegate {
         adView.slotId = self.slotId
        
         adView.rootViewController = self
-        adView.delegate = self
+        //adView.delegate = delegateParent as! any APAdViewDelegate
         adView.load()
         
         //myCancelButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
