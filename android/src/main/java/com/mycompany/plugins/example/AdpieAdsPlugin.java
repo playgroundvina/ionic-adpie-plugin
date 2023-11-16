@@ -74,6 +74,15 @@ public class AdpieAdsPlugin extends Plugin {
         bannerExecutor.removeBanner(call);
     }
 
+
+    //resume show a banner
+    @PluginMethod
+    public void resumeBanner(final PluginCall call) {
+        bannerExecutor.resumeBanner(call);
+    }
+
+
+
     @PluginMethod
     public void prepareInterstitial(final PluginCall call) {
         Log.i("HAOHAO", "prepareInterstitial");
